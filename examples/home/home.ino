@@ -39,19 +39,21 @@ void loop()
 
 
   //make the robot point north
-  Serial.println("pika, go north");
 
   mag.getHeading(&mx, &my, &mz);
-  float heading = atan2(my, mx) * 180/M_PI;
+  int heading = (int) (atan2(my, mx) * 180/M_PI);
+  int target = 0;
+  
+  if ( abs(target-heading) >5 ) {
+    pika.home(target,heading);
+    delay(10);
+  }
+  else {
+   pika.stop(); 
+  }
+  
+  Serial.println(heading);
 
-  if ( heading > 2 ) {
-    pika.right()
-    delay(10);
-  }
-  else if (heading < -2) {
-    pika.left();
-    delay(10);
-  }
 
 /*
   pika.forward();

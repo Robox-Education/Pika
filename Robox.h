@@ -13,7 +13,14 @@ class Robox
     void backward();
     void right();
     void left();
+    void right(int target, int heading);
+    void left(int target, int heading);
+    void home(int target, int heading);
     void stop();
+
+    int _target;
+    int _heading;
+
   private:
     int _lwp;
     int _rwp;
