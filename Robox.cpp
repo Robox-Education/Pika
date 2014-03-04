@@ -49,7 +49,7 @@ void Robox::backward()
   _rw.write(0);
   _lw.write(180);
 }
-/*
+
 void Robox::left()
 {
   if (!_rw.attached())
@@ -61,7 +61,6 @@ void Robox::left()
   _rw.write(180);
   _lw.write(180);
 }
-*/
 
 void Robox::left(int target, int heading)
 {
@@ -72,13 +71,12 @@ void Robox::left(int target, int heading)
     _lw.attach(_lwp);
 
   int diff = target - heading;
-  int power = map(diff,-360,360,0,180);
+  int power = map(diff,-180,180,0,180);
 
   _rw.write(power);
   _lw.write(power);
 }
 
-/*
 void Robox::right()
 {
   if (!_rw.attached())
@@ -90,7 +88,6 @@ void Robox::right()
   _rw.write(0);
   _lw.write(0);
 }
-*/
 
 void Robox::home(int target, int heading)
 {
@@ -101,7 +98,7 @@ void Robox::home(int target, int heading)
     _lw.attach(_lwp);
 
   int diff = target - heading;
-  int power = map(diff,-360,360,0,180);
+  int power = map(diff,-180,180,0,180);
 
   _rw.write(power);
   _lw.write(power);
