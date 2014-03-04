@@ -43,15 +43,15 @@ void loop()
   mag.getHeading(&mx, &my, &mz);
   int heading = (int) (atan2(my, mx) * 180/M_PI);
   int target = 0;
-  
+
   if ( abs(target-heading) >5 ) {
     pika.home(target,heading);
     delay(10);
   }
   else {
-   pika.stop(); 
+   pika.stop();
   }
-  
+
   Serial.println(heading);
 
 
